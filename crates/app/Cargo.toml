@@ -1,0 +1,21 @@
+[package]
+name = "universal-transliterator"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+gtk.workspace = true
+glib.workspace = true
+gio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+ut-core = { path = "../core" }
+ut-text = { path = "../text" }
+ut-transliteration = { path = "../transliteration" }
+ut-keyboards = { path = "../keyboards" }
+ut-rime-engine = { path = "../rime-engine" }
+ut-japanese-engine = { path = "../japanese-engine" }
+ut-export = { path = "../export" }
+ut-storage = { path = "../storage" }

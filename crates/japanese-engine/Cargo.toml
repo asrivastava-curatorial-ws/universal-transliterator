@@ -1,0 +1,11 @@
+[package]
+name = "ut-japanese-engine"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+ut-core = { path = "../core" }
+ut-kkc-sys = { path = "../kkc-sys" }
+

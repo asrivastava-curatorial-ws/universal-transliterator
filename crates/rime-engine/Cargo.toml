@@ -1,0 +1,14 @@
+[package]
+name = "ut-rime-engine"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+ut-core = { path = "../core" }
+ut-rime-sys = { path = "../rime-sys" }
+
+[dev-dependencies]
+tempfile.workspace = true
+

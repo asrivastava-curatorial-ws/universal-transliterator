@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.universaltransliterator.UniversalTransliterator</id>
+  <name>Universal Transliterator</name>
+  <summary>Type in Roman letters, get Unicode text in 42 languages — offline</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <description>
+    <p>
+      Universal Transliterator is a two-pane editor: type Roman letters on the
+      left and get editable Unicode text on the right. It covers all 22
+      scheduled languages of India plus Mandarin, Japanese, Korean,
+      Vietnamese, Arabic, Persian, Hebrew, Greek, Cyrillic languages,
+      Armenian, Georgian, Amharic and Tigrinya.
+    </p>
+    <p>
+      Indic languages use the AI4Bharat IndicXlit model running locally, or
+      exact ITRANS / IAST rules. Mandarin uses Rime and Japanese uses libkkc.
+      Alternatives can be picked for any word and are remembered. Text you
+      edit in the output is kept while you keep typing. Nothing is sent over
+      the network.
+    </p>
+  </description>
+  <launchable type="desktop-id">org.universaltransliterator.UniversalTransliterator.desktop</launchable>
+  <url type="homepage">https://github.com/asrivastava-curatorial-ws/universal-transliterator</url>
+  <url type="bugtracker">https://github.com/asrivastava-curatorial-ws/universal-transliterator/issues</url>
+  <provides>
+    <binary>universal-transliterator</binary>
+  </provides>
+  <releases>
+    <release version="1.2.0" date="2026-11-19">
+      <description>
+        <p>New GitHub-style interface, alternatives for every word, learned
+        choices, edit-preserving output, session restore, ten more languages,
+        exact ITRANS/IAST mode, script conversion and a command-line mode.</p>
+      </description>
+    </release>
+    <release version="1.1.0" date="2026-10-18">
+      <description>
+        <p>Two-pane workflow and fully offline neural Indic conversion.</p>
+      </description>
+    </release>
+  </releases>
+  <content_rating type="oars-1.1"/>
+  <developer id="io.github.asrivastava-curatorial-ws">
+    <name>Abhisht Srivastava</name>
+  </developer>
+</component>

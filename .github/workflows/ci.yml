@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Format, lint, test, self-test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Ubuntu build dependencies
+        run: |
+          sudo apt-get update
+          sudo xargs -a packaging/ubuntu-build-deps.txt apt-get install -y --no-install-recommends
+
+      - name: Use Ubuntu's Rust toolchain and crate sources
+        run: |
+          # The runner's rustup toolchain is newer; the project is built and
+          # audited with Ubuntu 24.04's rustc and Debian crate sources.
+          echo "/usr/bin" >> "$GITHUB_PATH"
+          echo "CARGO_HOME=$RUNNER_TEMP/cargo-home" >> "$GITHUB_ENV"
+
+      - name: Format
+        run: cargo fmt --all -- --check
+
+      - name: Clippy
+        run: cargo clippy --workspace --all-targets --locked -- -D warnings
+
+      - name: Unit tests
+        run: cargo test --workspace --all-targets --locked
+
+      - name: Release build and offline self-test
+        run: |
+          cargo build --release --locked -p universal-transliterator
+          target/release/universal-transliterator --self-test
+          bash scripts/check_no_network.sh target/release/universal-transliterator build/network.trace

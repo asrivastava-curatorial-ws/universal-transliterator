@@ -1,0 +1,12 @@
+AppImage type-2 runtime
+=======================
+
+Bundled file: runtime-x86_64
+SHA-256: 2f7f4619c8bb88ae08bbdc842da8d867fb466b225ca44ae26d332d2ebedd16f8
+Runtime-reported lineage: https://github.com/AppImage/type2-runtime
+
+The runtime contains AppImage runtime components and squashfuse. License
+notices are embedded in the binary and are also reproduced by the runtime's
+--appimage-help output. The runtime is distributed independently from the
+GPL-3.0-or-later application code; see the upstream project for corresponding
+source and component-specific license terms.
